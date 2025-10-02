@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+/* 
+background: linear-gradient(to bottom, #F1F5F9, #E5E7EB);
+color: #111827;
+
+✅ Recommendation
+
+Primary: #F1F5F9
+
+Secondary (cards/tables): white (#ffffff) for card background
+
+Sidebar/footer/navbar: #1E2939
+
+Table heading: #364153 */

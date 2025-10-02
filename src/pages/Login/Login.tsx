@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebaseConfig"; // Firebase config
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+import auth from "../../services/Firebase/firebase.config";
 
 const db = getFirestore();
 
 const Login: React.FC = () => {
-  const [identifier, setIdentifier] = useState(""); // email or phone
+  const [identifier, setIdentifier] = useState(""); 
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,7 +28,7 @@ const Login: React.FC = () => {
         const q = query(
           collection(db, "users"),
           where("phoneNumber", "==", identifier),
-          where("password", "==", password) // For demo; in prod use hashed password
+          where("password", "==", password)
         );
         const querySnapshot = await getDocs(q);
 

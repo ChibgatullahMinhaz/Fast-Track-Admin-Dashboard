@@ -19,7 +19,8 @@ function App() {
         <Navbar />
 
         {/* Dynamic content */}
-        <main className="flex-1 overflow-auto p-6 bg-gray-100">
+        <main className="flex-1 overflow-auto p-6 bg-[#24324a] text-gray-200">
+
           <Suspense fallback={<Loader />}>
             <AppContent>
               <Outlet />
