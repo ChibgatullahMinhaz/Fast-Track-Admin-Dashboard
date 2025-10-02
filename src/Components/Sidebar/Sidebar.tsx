@@ -133,9 +133,8 @@ const Sidebar: React.FC = () => {
     <div className="flex">
       {/* Sidebar */}
       <div
-        className={` bg-[#1E2939] text-white h-screen p-5 pt-8 relative duration-300 ${
-          isOpen ? "w-64" : "w-20"
-        }`}
+        className={` bg-[#1E2939] text-white h-screen p-5 pt-8 relative duration-300 ${isOpen ? "w-64" : "w-20"
+          } overflow-y-auto overflow-x-hidden`}
       >
         {/* Toggle button */}
         <div
@@ -175,9 +174,8 @@ const Sidebar: React.FC = () => {
               return (
                 <li key={index}>
                   <div
-                    className={`flex items-center justify-between cursor-pointer p-2 rounded-md hover:bg-gray-700 ${
-                      isGroupOpen ? "bg-gray-700" : ""
-                    }`}
+                    className={`flex items-center justify-between cursor-pointer p-2 rounded-md hover:bg-gray-700 ${isGroupOpen ? "bg-gray-700" : ""
+                      }`}
                     onClick={() => toggleGroup(item.name)}
                   >
                     <div className="flex items-center gap-3">
@@ -201,9 +199,8 @@ const Sidebar: React.FC = () => {
                           <Link
                             to={child.link}
                             key={i}
-                            className={`block p-2 rounded-md text-sm hover:bg-gray-600 ${
-                              childActive ? "bg-gray-600" : ""
-                            }`}
+                            className={`block p-2 rounded-md text-sm hover:bg-gray-600 ${childActive ? "bg-gray-600" : ""
+                              }`}
                           >
                             {child.name}
                           </Link>
@@ -219,15 +216,13 @@ const Sidebar: React.FC = () => {
               <Link
                 to={item.link!}
                 key={index}
-                className={`flex items-center gap-3 p-2 cursor-pointer rounded-md hover:bg-gray-700 ${
-                  isActive ? "bg-gray-700" : ""
-                }`}
+                className={`flex items-center gap-3 p-2 cursor-pointer rounded-md hover:bg-gray-700 ${isActive ? "bg-gray-700" : ""
+                  }`}
               >
                 <span className="text-xl">{item.icon}</span>
                 <span
-                  className={`text-md font-medium duration-200 ${
-                    isOpen ? "block" : "hidden"
-                  }`}
+                  className={`text-md font-medium duration-200 ${isOpen ? "block" : "hidden"
+                    }`}
                 >
                   {item.name}
                 </span>
