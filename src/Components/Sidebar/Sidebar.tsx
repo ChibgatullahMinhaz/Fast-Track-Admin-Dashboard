@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { FaUsers, FaTruck, FaComments, FaHome } from "react-icons/fa";
 import { Link } from 'react-router';
+import { FaUsers, FaTruck, FaComments, FaHome, FaCar, FaRoute } from "react-icons/fa";
 
 const Sidebar: React.FunctionComponent = () => {
     const [isOpen, setIsOpen] = useState(true);
 
     const menuItems = [
-        { name: "Dashboard", icon: <FaHome />, link: "/admin/dashboard" },
-        { name: "Users", icon: <FaUsers />, link: "/admin/users" },
-        { name: "Drivers", icon: <FaTruck />, link: "/admin/drivers" },
+        { name: "Dashboard", icon: <FaHome />, link: "/" },
+        { name: "Users Management", icon: <FaUsers />, link: "/admin/users" },
+        { name: "Car Management", icon: <FaCar />, link: "/admin/cars" },
+        { name: "Truck Management", icon: <FaTruck />, link: "/admin/track" },
+        { name: "Drivers Management", icon: <FaTruck />, link: "/admin/drivers" },
         { name: "Chats", icon: <FaComments />, link: "/admin/chats" },
     ];
-
     return (
         <div className="flex">
             {/* Sidebar */}
@@ -28,10 +29,28 @@ const Sidebar: React.FunctionComponent = () => {
                 </div>
 
                 {/* Logo */}
-                <div className="flex items-center gap-2 mb-10">
-                    <div className={`text-2xl font-bold duration-300 ${isOpen ? "block" : "hidden"}`}>
-                        FastTruck Admin
+                <div className="flex items-center gap-2">
+                    {/* Logo / Admin Profile */}
+                    <div className="flex items-center gap-3 mb-10">
+                        {/* Admin Image */}
+                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-300">
+                            <img
+                                src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg"
+                                alt="Admin"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+
+                        {/* Admin Name (visible only if sidebar open) */}
+                        {isOpen && (
+                            <div className="flex flex-col">
+                                <span className="font-semibold text-white">Md Hasan</span>
+                                <span className="text-sm text-gray-300">Administrator</span>
+                            </div>
+                        )}
                     </div>
+
+
                 </div>
 
                 {/* Menu */}
@@ -50,10 +69,7 @@ const Sidebar: React.FunctionComponent = () => {
                 </ul>
             </div>
 
-            {/* Main content */}
-            <div className="flex-1 p-7">
-                <h1 className="text-2xl font-bold">Admin Panel Content</h1>
-            </div>
+
         </div>
     );
 };
